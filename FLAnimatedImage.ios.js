@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import { requireNativeComponent, NativeModules, StyleSheet } from 'react-native'
+import { requireNativeComponent, NativeModules, StyleSheet,Image,View } from 'react-native'
 
 import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource'
 
@@ -48,8 +48,17 @@ class FLAnimatedImage extends Component {
       height: undefined,
     }
     const src = source.uri
-    return (
-      <RNFLAnimatedImage {...this.props} src={src} contentMode={contentMode} />
+    var isPNG = (src.split('?')[0].search('.png') != -1);
+//     return (
+//       <RNFLAnimatedImage {...this.props} src={src} contentMode={contentMode} />
+//     )
+    return (<View>
+        { isPNG ?
+          <Image source={this.props.source} style={this.props.style}  />
+          :
+          <RNFLAnimatedImage {...this.props} src={src} contentMode={contentMode} />
+        }
+        </View>
     )
   }
 }
