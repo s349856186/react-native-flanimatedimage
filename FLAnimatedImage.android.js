@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, View, Image } from 'react-native'
 
 class FLAnimatedImage extends Component {
   render() {
